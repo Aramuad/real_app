@@ -19,13 +19,15 @@ class NotesController < ApplicationController
     else
       render :new
   end
+
+  def edit
+    @page = Page.find(params[:id])
+  end
 end
 
 private
 
-def notes_params
-  notes.require(:note).permit(:title, :body)
+  def notes_params
+    params.require(:note).permit(:title, :body)
+  end
 end
-
-
-
